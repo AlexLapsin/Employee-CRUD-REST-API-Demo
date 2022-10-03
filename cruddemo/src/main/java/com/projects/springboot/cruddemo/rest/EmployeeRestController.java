@@ -36,7 +36,7 @@ public class EmployeeRestController {
 	
 	// Add mapping for GET "/employees/{employeeId}"
 	@GetMapping("/employees/{employeeId}")
-	public Employee findById(@PathVariable int theId){
+	public Employee findById(@PathVariable("employeeId") int theId){
 		Employee theEmployee = employeeService.findById(theId);
 		
 		if(theEmployee == null) {
@@ -71,7 +71,7 @@ public class EmployeeRestController {
 	
 	// add mapping for DELETE "/employees/{employeeId}" - delete an employee
 	@DeleteMapping("/employees/{employeeId}")
-	public String deleteEmployee(@PathVariable int employeeId) {
+	public String deleteEmployee(@PathVariable("employeeId") int employeeId) {
 		
 		Employee theEmployee = employeeService.findById(employeeId);
 		
